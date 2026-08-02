@@ -16,7 +16,7 @@ for record in birthdays:
         random_number = random.randint(1,3)
         with open(f"letter_templates/letter_{random_number}.txt", "r") as file:
             msg = file.read()
-            msg.replace("[NAME]", record["name"])
+            msg = msg.replace("[NAME]", record["name"])
         with smtplib.SMTP('smtp.gmail.com', 587) as connection:
             connection.starttls()
             connection.login(user=my_email, password=my_password)
